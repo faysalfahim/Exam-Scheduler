@@ -1,0 +1,66 @@
+<div *ngIf="isLoading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div fxLayout="row" style="padding-top: 32px;" fxLayoutAlign="end center" class="header-button">
+  <button mat-raised-button (click)="logOut()">Logout</button>
+</div>
+<mat-tab-group (selectedTabChange)="reloadData()">
+  <mat-tab label="Select Dates">
+   <app-add-student>
+
+   </app-add-student>
+  </mat-tab>
+  <mat-tab label="Registration Requests">
+    <div style="padding-left: 10px;">
+
+      <table mat-table [dataSource]="requests" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="Roll">
+          <th mat-header-cell *matHeaderCellDef> Roll </th>
+          <td mat-cell *matCellDef="let element"> {{element.roll}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Courses">
+          <th mat-header-cell *matHeaderCellDef> Courses</th>
+          <td mat-cell *matCellDef="let element"> {{element.courses}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element">
+            <i class="material-icons" style="color: crimson" *ngIf="!element.isApproved">
+              av_timer
+            </i>
+            <i class="material-icons" style="color: darkseagreen" *ngIf="element.isApproved">
+              done_all
+            </i>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef> Approve </th>
+          <td mat-cell *matCellDef="let element"> 
+          <button mat-raised-button *ngIf="!element.isApproved" (click) ="approve(element)" >Approve</button> 
+          <button mat-raised-button *ngIf="element.isApproved" (click) ="approve(element)" >disapprove</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <!-- <app-upload-file [type]="'student'"></app-upload-file> -->
+  </mat-tab>
+  <mat-tab label="Generated Routine">
+    <div style="padding-left: 10px;">
+
+      <app-advisors-list [requests]="courses"></app-advisors-list>
+    </div>
+
+  </mat-tab>
+</mat-tab-group>

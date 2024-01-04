@@ -1,0 +1,48 @@
+
+
+  <mat-card>
+    <button style="margin-top: 20px" mat-raised-button color="warn" (click)="deleteAllStudents()">Clear Dates</button>
+    <form [formGroup]="dateForm" fxLayout="column"
+      style="width: 40%;margin-left: auto;margin-right: auto;margin-top: 60px;">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose date 1</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="date1">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose date 2</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="date2">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose date 3</mat-label>
+        <input matInput [matDatepicker]="picker3" formControlName="date3">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose date 4</mat-label>
+        <input matInput [matDatepicker]="picker4" formControlName="date4">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+        <mat-datepicker #picker4></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose date 5</mat-label>
+        <input matInput [matDatepicker]="picker5" formControlName="date5">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker5"></mat-datepicker-toggle>
+        <mat-datepicker #picker5></mat-datepicker>
+      </mat-form-field>
+    </form>
+    <div style="padding-left: 350px">
+      <button mat-raised-button color="primary" (click)="submitdate()">
+       Add
+      </button>
+    </div>
+  </mat-card>
