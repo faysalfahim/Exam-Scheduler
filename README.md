@@ -21,20 +21,21 @@ JavaScript, HTML, CSS, AngularJS, NodeJS.
 **Installation**
 
 Clone the repository :
-
+```bash
 git clone https://github.com/faysalfahim/Exam-Scheduler.git
-
+```
+```bash
 cd Exam-Scheduler
-
+```
 
 Install dependencies:
-
+```bash
 npm install
-
+```
 Run the development server:
-
+```bash
 npm start
-
+```
 **Usage**
 
 Navigate to http://localhost:3000 in your web browser to access the application.
